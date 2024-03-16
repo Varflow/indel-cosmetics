@@ -1,0 +1,28 @@
+.partners-page {
+  padding-bottom: 100px;
+  .section-header {
+    padding: 60px 0;
+  }
+
+  .partners-list {
+    padding: 0 100px;
+
+    .partner-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:last-child {
+        img {
+          width: 250px;
+        }
+      }
+
+      img {
+        width: 150px;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+  }
+}
