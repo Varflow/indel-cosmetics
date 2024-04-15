@@ -10,58 +10,17 @@
     navigation
     pagination
   >
-    <swiper-slide>
+    <swiper-slide v-for="slide in slides" :key="slide.id">
       <div class="main-banner">
-        <img
-          src="/images/banners/main/banner-3.webp"
-          alt="Banner 1"
-          class="main-banner__image"
-        />
+        <img :src="slide.image" alt="Banner 1" class="main-banner__image" />
         <h2 class="main-banner__title">
-          Convergence of experience, science and nature in cosmetic ingredients
+          {{ slide.title }}
         </h2>
-        <h3 class="main-banner__subtitle">
-          We bring you only the latest and most advanced ingredients for your
-          cosmetic and personal care applications
+        <h3 class="main-banner__subtitle" v-if="slide.description">
+          {{ slide.description }}
         </h3>
         <div class="main-banner__actions">
-          <NuxtLink to="/products" class="link-without-decoration">
-            <AppButton variant="white"> Explore products </AppButton>
-          </NuxtLink>
-        </div>
-      </div>
-    </swiper-slide>
-    <swiper-slide>
-      <div class="main-banner">
-        <img
-          src="/images/banners/main/banner-2.webp"
-          alt="Banner-2"
-          class="main-banner__image"
-        />
-        <h2 class="main-banner__title">
-          Providing unique cosmetic specialties
-        </h2>
-
-        <div class="main-banner__actions">
-          <NuxtLink to="/products" class="link-without-decoration">
-            <AppButton variant="white"> Explore products </AppButton>
-          </NuxtLink>
-        </div>
-      </div>
-    </swiper-slide>
-    <swiper-slide>
-      <div class="main-banner">
-        <img
-          src="/images/banners/main/banner-1.webp"
-          alt="Banner-3"
-          class="main-banner__image"
-        />
-        <h2 class="main-banner__title">
-          High performance and sustainable ingredients
-        </h2>
-
-        <div class="main-banner__actions">
-          <NuxtLink to="/products" class="link-without-decoration">
+          <NuxtLink :to="slide.link" class="link-without-decoration">
             <AppButton variant="white"> Explore products </AppButton>
           </NuxtLink>
         </div>
@@ -88,6 +47,40 @@ export default {
     const modules = [Pagination, Navigation, Autoplay];
 
     return { modules };
+  },
+
+  data() {
+    return {
+      slides: [],
+      loading: false,
+    };
+  },
+  async mounted() {
+    try {
+      this.loading = true;
+      const media = useStrapiMedia();
+      const { find } = useStrapi();
+
+      const banners = await find("slajder-glavnayas", {
+        populate: {
+          image: "*",
+        },
+      });
+
+      console.log(banners);
+
+      const slides = banners.data.map((banner) => {
+        return {
+          ...banner.attributes,
+          image: `${media}${banner.attributes.image.data?.attributes?.url}`,
+        };
+      });
+
+      this.loading = false;
+      this.slides = slides;
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 </script>
