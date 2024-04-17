@@ -10,8 +10,7 @@
       </div>
       <div class="col-6 col-lg-3">
         <NuxtLink @click="close" to="/">
-          Indel
-          <!-- <img src="/images/logo.png" alt="" class="header-logo" /> -->
+           <img src="/images/logo.png" alt="" class="header-logo" />
         </NuxtLink>
       </div>
 
