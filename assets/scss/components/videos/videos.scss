@@ -1,0 +1,39 @@
+.video-list {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 16px;
+}
+
+.video-list--full {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.video-card {
+  &__iframe {
+    width: 100%;
+    height: 40vh;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &__title {
+    font-family: $montserrat;
+    font-size: 18px;
+    font-weight: 500;
+    color: $black;
+    line-height: 26px;
+
+    margin-top: 12px;
+    transition: color 0.5s ease;
+  }
+}

@@ -13,5 +13,6 @@
     <HomePortfolio />
     <HomeProducts />
     <HomePosts />
+    <HomeVideos />
   </div>
 </template>
