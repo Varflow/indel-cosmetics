@@ -19,15 +19,23 @@
         <h4 class="footer-col__title">Ingredients</h4>
         <div class="footer-col__list">
           <NuxtLink
+            v-for="category of ingredientsForView"
             :to="
               Boolean(category.children?.length)
                 ? `/ingredients/${category.id}`
                 : `/category/${category.id}`
             "
             class="footer-col__item"
-            v-for="category of ingredientsForView"
-            >{{ category.name }}</NuxtLink
           >
+            {{ category.name }}
+          </NuxtLink>
+          <NuxtLink
+            v-if="hasMaxIngrediests"
+            to="/ingredients"
+            class="footer-col__item"
+          >
+            All ingredients
+          </NuxtLink>
         </div>
       </div>
 
@@ -35,21 +43,29 @@
         <h4 class="footer-col__title">Application products</h4>
         <div class="footer-col__list">
           <NuxtLink
+            v-for="category of applicationsForView"
             :to="
               Boolean(category.children?.length)
                 ? `/applications/${category.id}`
                 : `/category/${category.id}`
             "
             class="footer-col__item"
-            v-for="category of applicationsForView"
-            >{{ category.name }}</NuxtLink
           >
+            {{ category.name }}
+          </NuxtLink>
+          <NuxtLink
+            v-if="hasMaxApplications"
+            to="/applications"
+            class="footer-col__item"
+          >
+            All applications
+          </NuxtLink>
         </div>
       </div>
     </div>
 
     <div class="footer-copyright">
-      Chempha © Copyright 2023 - All rights reserved
+      Indel Cosmetics © Copyright 2023 - All rights reserved
     </div>
   </footer>
 </template>
@@ -60,7 +76,7 @@ const toView = (collection) => {
     return [];
   }
 
-  return collection.map((collection) => {
+  return collection.slice(0, 4).map((collection) => {
     return {
       id: collection.id,
       name: collection.attributes.Name,
@@ -92,9 +108,14 @@ export default {
       const ingredientsForView = toView(ingredients);
       const applicationsForView = toView(applications);
 
+      const hasMaxIngrediests = ingredients.length >= 5;
+      const hasMaxApplications = applications.length >= 5;
+
       return {
         ingredientsForView,
         applicationsForView,
+        hasMaxApplications,
+        hasMaxIngrediests,
       };
     } catch (error) {
       console.log(error);

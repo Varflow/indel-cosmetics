@@ -40,9 +40,11 @@
         <div class="product-page__tabs">
           <div class="product-page__tab">Description</div>
         </div>
+        <div class="product-page__text" v-html="productForView.description" />
         <div
-          class="product-page__text"
-          v-html="productForView.description"
+          class="product-page__video"
+          v-if="productForView.video"
+          v-html="productForView.video"
         ></div>
       </div>
     </div>
@@ -65,7 +67,6 @@ export default {
 
       const product = await findOne("tovaries", id, { populate: "*" });
 
-      console.log(product.data.attributes);
       const productForView = {
         ...product.data.attributes,
         image: product.data.attributes?.image.data?.attributes,
