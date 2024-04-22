@@ -21,7 +21,7 @@
         </h3>
         <div class="main-banner__actions">
           <NuxtLink :to="slide.link" class="link-without-decoration">
-            <AppButton variant="white"> Explore products </AppButton>
+            <AppButton variant="white"> {{ slide.button_text }} </AppButton>
           </NuxtLink>
         </div>
       </div>
