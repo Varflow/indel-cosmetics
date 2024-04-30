@@ -18,15 +18,20 @@
     </div>
 
     <div class="header-mobile__menu">
-      <NuxtLink @click="$emit('close')" to="/company" class="header-menu__link"
-        >Company</NuxtLink
+      <NuxtLink
+        @click="$emit('close')"
+        to="/company"
+        class="header-menu__link"
+        v-if="menu"
       >
-      <div class="header-menu__link">
+        {{ menu.first_menu_item }}
+      </NuxtLink>
+      <div class="header-menu__link" v-if="menu">
         <div
           class="header-menu__link-label"
           @click="toggleCategory('ingredients')"
         >
-          Ingredients
+          {{ menu.second_menu_item }}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             id="Outline"
@@ -88,12 +93,12 @@
           </div>
         </div>
       </div>
-      <div class="header-menu__link">
+      <div class="header-menu__link" v-if="menu">
         <div
           class="header-menu__link-label"
           @click="toggleCategory('applications')"
         >
-          Applications
+          {{ menu.third_menu_item }}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             id="Outline"
@@ -158,18 +163,30 @@
           </div>
         </div>
       </div>
-      <NuxtLink @click="$emit('close')" to="/partners" class="header-menu__link"
-        >Partners</NuxtLink
+      <NuxtLink
+        @click="$emit('close')"
+        to="/partners"
+        class="header-menu__link"
+        v-if="menu"
       >
-      <NuxtLink @click="$emit('close')" to="/news" class="header-menu__link"
-        >News</NuxtLink
+        {{ menu.fourth_menu_item }}
+      </NuxtLink>
+      <NuxtLink
+        @click="$emit('close')"
+        to="/news"
+        class="header-menu__link"
+        v-if="menu"
       >
+        {{ menu.fifth_menu_item }}
+      </NuxtLink>
       <NuxtLink
         @click="$emit('close')"
         to="/contact-us"
         class="header-menu__link"
-        >Contact Us</NuxtLink
+        v-if="menu"
       >
+        {{ menu.sixth_menu_item }}
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -211,6 +228,7 @@ export default {
     try {
       const { find } = useStrapi();
       const categories = await find("categories", { populate: "*" });
+      const menu = await find("menyu");
 
       const ingredients = categories.data.filter(
         (category) => category.attributes.section === "ingredients"
@@ -225,6 +243,7 @@ export default {
       return {
         ingredientsForView,
         applicationsForView,
+        menu: menu.data.attributes,
       };
     } catch (error) {
       console.log(error);

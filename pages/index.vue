@@ -9,10 +9,24 @@
       />
     </Head>
     <BannersMain />
-    <BannersAbout />
-    <HomePortfolio />
-    <HomeProducts />
-    <HomePosts />
-    <HomeVideos />
+    <BannersAbout :texts="texts" />
+    <HomePortfolio :texts="texts" />
+    <HomeProducts :texts="texts" />
+    <HomePosts :texts="texts" />
+    <HomeVideos :texts="texts" />
   </div>
 </template>
+
+<script lang="ts">
+export default {
+  async setup() {
+    const { findOne } = useStrapi();
+
+    const globalTexts = await findOne("teksty");
+
+    return {
+      texts: globalTexts.data.attributes,
+    };
+  },
+};
+</script>

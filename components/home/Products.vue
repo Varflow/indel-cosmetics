@@ -2,9 +2,8 @@
   <div class="section-products" v-if="productsForView">
     <div class="container">
       <div class="section-products__header">
-        <h3 class="section-title">
-          We are committed to provide you with highly efficient and sustainable
-          solutions that are safe for both the environment and people
+        <h3 class="section-title" v-if="texts">
+          {{ texts.third_section_title }}
         </h3>
         <div class="slider-navigation">
           <div class="slider-prev" ref="prev">
@@ -71,7 +70,9 @@
 
     <div class="section-products__actions">
       <NuxtLink to="/products" class="link-without-decoration">
-        <AppButton variant="black"> View All Products </AppButton>
+        <AppButton variant="black" v-if="texts">
+          {{ texts.third_section_button_text }}
+        </AppButton>
       </NuxtLink>
     </div>
   </div>
@@ -87,6 +88,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 export default {
+  props: ["texts"],
   components: {
     Swiper,
     SwiperSlide,

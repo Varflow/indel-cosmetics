@@ -1,7 +1,7 @@
 <template>
   <div class="category-page">
     <div class="container">
-      <AppPageBanner title="All News" />
+      <AppPageBanner title="Всі новини" />
       <PostList />
     </div>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="category-page">
     <div class="container">
-      <AppPageBanner title="All videos" />
+      <AppPageBanner title="Всі відео" />
       <VideoList :full="true" />
     </div>
   </div>

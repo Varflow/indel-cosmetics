@@ -1,12 +1,11 @@
 <template>
   <div class="section-portfolio container">
     <div class="section-header">
-      <h3 class="section-title">Product Portfolio</h3>
-      <h4 class="section-subtitle">
-        From clinically substantiated plant stem cells, peptides, extracts,
-        fermented oils and other actives up to sustainable silicone alternatives
-        and multifunctional polymers with unique characteristics and unusual
-        behaviour in formulations
+      <h3 class="section-title" v-if="texts">
+        {{ texts.second_section_title }}
+      </h3>
+      <h4 class="section-subtitle" v-if="texts">
+        {{ texts.second_section_subtitle }}
       </h4>
     </div>
 
@@ -71,3 +70,9 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["texts"],
+};
+</script>

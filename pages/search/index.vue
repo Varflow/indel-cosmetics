@@ -6,7 +6,7 @@
         <input
           type="text"
           class="search-container__input"
-          placeholder="Search..."
+          placeholder="Результати пошуку..."
           v-model="searchQuery"
           v-on:keyup.enter="search"
         />

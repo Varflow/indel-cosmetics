@@ -6,19 +6,19 @@
     </Head>
     <div class="container">
       <AppPageBanner
-        title="Contact us"
-        subtitle="If you have any questions or would like to learn more about our ingredients, please don't hesitate to get in touch with us."
+        title="Зв'яжіться з нами"
+        subtitle="Якщо у вас виникли запитання або ви хочете дізнатися більше про наші інгредієнти, будь ласка, не соромтеся зв’язатися з нами."
       />
 
       <div class="contact-content row gy-4">
         <div class="col-12 col-lg-6">
-          <h4 class="contact-title">Contact Us</h4>
-          <h5 class="contact-subtitle">We look forward to hearing from you!</h5>
+          <h4 class="contact-title">Зв'яжіться з нами</h4>
+          <h5 class="contact-subtitle">Ми з нетерпінням чекаємо від вас!</h5>
 
           <form class="contact-form" @submit.prevent="submit">
             <div class="contact-form__row">
               <label for="name" class="form-field col-12">
-                Your name*
+                Ім'я*
                 <input
                   class="form-field__input"
                   type="text"
@@ -28,7 +28,7 @@
                 />
               </label>
               <label for="email" class="form-field col-12">
-                Your email*
+                Email*
                 <input
                   class="form-field__input"
                   type="email"
@@ -39,7 +39,7 @@
               </label>
             </div>
             <label for="message" class="form-field">
-              Your message
+              Ваше повідомлення
               <textarea
                 id="message"
                 v-model="message"
@@ -47,7 +47,7 @@
               />
             </label>
             <div class="contact-form__actions">
-              <AppButton variant="black">Send message</AppButton>
+              <AppButton variant="black">Відправити повідомлення</AppButton>
             </div>
           </form>
         </div>

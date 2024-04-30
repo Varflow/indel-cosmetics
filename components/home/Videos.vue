@@ -2,16 +2,26 @@
   <div class="section-posts">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Indel videos</h2>
+        <h2 class="section-title" v-if="texts">
+          {{ texts.fifth_section_title }}
+        </h2>
       </div>
 
       <VideoList />
 
       <div class="section-actions">
         <NuxtLink to="/videos" class="link-without-decoration">
-          <AppButton variant="black">View all videos</AppButton>
+          <AppButton variant="black" v-if="texts">{{
+            texts.fifth_section_button_text
+          }}</AppButton>
         </NuxtLink>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["texts"],
+};
+</script>

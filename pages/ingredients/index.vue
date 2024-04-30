@@ -2,7 +2,7 @@
 <template>
   <div class="category-page">
     <Head>
-      <Title> Ingredients</Title>
+      <Title>Інгредієнти</Title>
       <Meta name="og:title" :content="` Ingredients`" />
       <Meta name="og:image" content="/images/banners/ingredients.jpeg" />
     </Head>

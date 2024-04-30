@@ -2,7 +2,7 @@
   <footer class="footer container">
     <div class="row gy-5">
       <div class="col-lg-4">
-        <h4 class="footer-col__title">Contact us</h4>
+        <h4 class="footer-col__title">Контакти</h4>
         <div class="footer-col__list">
           <div class="footer-col__item">Chempha OÜ</div>
           <div class="footer-col__item">Narva mnt 7-634</div>
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="col-lg-4">
-        <h4 class="footer-col__title">Ingredients</h4>
+        <h4 class="footer-col__title">Інгредієнти</h4>
         <div class="footer-col__list">
           <NuxtLink
             v-for="category of ingredientsForView"
@@ -34,13 +34,13 @@
             to="/ingredients"
             class="footer-col__item"
           >
-            All ingredients
+            Всі інгредієнти
           </NuxtLink>
         </div>
       </div>
 
       <div class="col-lg-4">
-        <h4 class="footer-col__title">Application products</h4>
+        <h4 class="footer-col__title">Продукти застосування</h4>
         <div class="footer-col__list">
           <NuxtLink
             v-for="category of applicationsForView"
@@ -58,14 +58,14 @@
             to="/applications"
             class="footer-col__item"
           >
-            All applications
+            Всі продукти
           </NuxtLink>
         </div>
       </div>
     </div>
 
     <div class="footer-copyright">
-      Indel Cosmetics © Copyright 2023 - All rights reserved
+      Indel Cosmetics © Copyright 2023 - Усі права захищено
     </div>
   </footer>
 </template>

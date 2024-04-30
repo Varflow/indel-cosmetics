@@ -5,7 +5,7 @@
       <Meta name="og:title" content="Chempha News" />
     </Head>
     <div class="container">
-      <AppPageBanner title="News" />
+      <AppPageBanner title="Новини" />
       <div class="posts-list-container">
         <PostList :posts="posts" />
       </div>

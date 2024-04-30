@@ -1,9 +1,11 @@
 <template>
-  <NuxtLink to="/company" class="header-menu__link">Company</NuxtLink>
+  <NuxtLink to="/company" class="header-menu__link" v-if="menu">
+    {{ menu.first_menu_item }}
+  </NuxtLink>
   <div class="header-menu__link" v-if="ingredientsForView">
-    <NuxtLink to="/ingredients">
+    <NuxtLink to="/ingredients" v-if="menu">
       <div class="header-menu__link-label">
-        Ingredients
+        {{ menu.second_menu_item }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           id="Outline"
@@ -56,9 +58,9 @@
     </div>
   </div>
   <div class="header-menu__link" v-if="applicationsForView">
-    <NuxtLink to="/applications">
+    <NuxtLink to="/applications" v-if="menu">
       <div class="header-menu__link-label">
-        Applications
+        {{ menu.third_menu_item }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           id="Outline"
@@ -110,9 +112,15 @@
       </div>
     </div>
   </div>
-  <NuxtLink to="/partners" class="header-menu__link">Partners</NuxtLink>
-  <NuxtLink to="/news" class="header-menu__link">News</NuxtLink>
-  <NuxtLink to="/contact-us" class="header-menu__link">Contact Us</NuxtLink>
+  <NuxtLink to="/partners" class="header-menu__link" v-if="menu">
+    {{ menu.fourth_menu_item }}
+  </NuxtLink>
+  <NuxtLink to="/news" class="header-menu__link">
+    {{ menu.fifth_menu_item }}
+  </NuxtLink>
+  <NuxtLink to="/contact-us" class="header-menu__link">
+    {{ menu.sixth_menu_item }}
+  </NuxtLink>
 </template>
 
 <script>
@@ -142,6 +150,7 @@ export default {
     try {
       const { find } = useStrapi();
       const categories = await find("categories", { populate: "*" });
+      const menu = await find("menyu");
 
       const ingredients = categories.data.filter(
         (category) => category.attributes.section === "ingredients"
@@ -156,6 +165,7 @@ export default {
       return {
         ingredientsForView,
         applicationsForView,
+        menu: menu.data.attributes,
       };
     } catch (error) {
       console.log(error);
