@@ -30,7 +30,7 @@
               variant="black"
               appearence="filled"
               @click="openSubmitModal"
-              >Sample request</AppButton
+              >Замовити зразок</AppButton
             >
           </div>
         </div>
@@ -38,7 +38,7 @@
 
       <div class="product-page__content">
         <div class="product-page__tabs">
-          <div class="product-page__tab">Description</div>
+          <div class="product-page__tab">Опис</div>
         </div>
         <div class="product-page__text" v-html="productForView.description" />
         <div

@@ -1,12 +1,12 @@
 <template>
-  <AppModal id="submit-modal" title="Sample request">
+  <AppModal id="submit-modal" title="Замовити зразок">
     <form class="submit-modal__form" @submit.prevent="submit">
       <label class="form-field">
-        Your name
+        Ім'я
         <input type="text" class="form-field__input" required v-model="name" />
       </label>
       <label class="form-field">
-        Your email
+        Email
         <input
           type="email"
           class="form-field__input"
@@ -15,16 +15,16 @@
         />
       </label>
       <label class="form-field">
-        Subject
+        Тема
         <input type="text" class="form-field__input" v-model="subject" />
       </label>
       <label class="form-field">
-        Message
+        Повідомлення
         <textarea class="form-field__textarea" required v-model="message" />
       </label>
       <div class="submit-modal__actions">
         <AppButton variant="black" appearence="filled"
-          >Sample request</AppButton
+          >Замовити зразок</AppButton
         >
       </div>
     </form>

@@ -11,7 +11,7 @@
     </NuxtLink>
     <div class="product-card__actions">
       <AppButton variant="black" @click="openSubmitModal"
-        >Sample request</AppButton
+        >Замовити зразок</AppButton
       >
     </div>
   </div>

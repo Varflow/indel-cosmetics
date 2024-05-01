@@ -21,9 +21,9 @@
           </div>
 
           <div class="portfolio-card__content">
-            <h3 class="portfolio-card__title">Ingredients</h3>
+            <h3 class="portfolio-card__title">Інгредієнти</h3>
             <h4 class="portfolio-card__subtitle">
-              Categories
+              Категорії
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 id="Outline"
@@ -49,9 +49,9 @@
             />
           </div>
           <div class="portfolio-card__content">
-            <h3 class="portfolio-card__title">Applications</h3>
+            <h3 class="portfolio-card__title">Продукти застосування</h3>
             <h4 class="portfolio-card__subtitle">
-              Categories
+              Категорії
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 id="Outline"

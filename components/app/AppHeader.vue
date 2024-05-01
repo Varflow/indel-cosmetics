@@ -10,7 +10,7 @@
       </div>
       <div class="col-6 col-lg-2">
         <NuxtLink @click="close" to="/">
-           <img src="/images/logo1.png" alt="" class="header-logo" />
+          <img src="/images/logo.svg" alt="" class="header-logo" />
         </NuxtLink>
       </div>
 
