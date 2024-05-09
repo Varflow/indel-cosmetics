@@ -49,7 +49,7 @@
             />
           </div>
           <div class="portfolio-card__content">
-            <h3 class="portfolio-card__title">Продукти застосування</h3>
+            <h3 class="portfolio-card__title">Використання</h3>
             <h4 class="portfolio-card__subtitle">
               Категорії
               <svg

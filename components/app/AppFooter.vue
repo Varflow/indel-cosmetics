@@ -4,14 +4,23 @@
       <div class="col-lg-4">
         <h4 class="footer-col__title">Контакти</h4>
         <div class="footer-col__list">
-          <div class="footer-col__item">Chempha OÜ</div>
-          <div class="footer-col__item">Narva mnt 7-634</div>
-          <div class="footer-col__item">10117 Tallinn, Estonia</div>
-          <a href="tel:+372 712 2708" class="footer-col__item"
-            >Tel. +372 712 2708</a
+          <div class="footer-col__item">ТОВ "Індел"</div>
+          <div class="footer-col__item">Вул. М. Грушевського,39Д</div>
+          <div class="footer-col__item">Одеса, 650031, Україна</div>
+          <a href="tel:+380 48 701-33-89" class="footer-col__item"
+            >Tel./fax: +380 48 701-33-89</a
+          >
+          <a href="tel:+380 48 705-46-61" class="footer-col__item"
+            >Tel./fax: +380 48 705-46-61</a
+          >
+          <a href="tel:+380 48 737-33-25" class="footer-col__item"
+            >Tel./fax: +380 48 737-33-25</a
           >
           <a href="mailto:info@chempha.com" class="footer-col__item"
-            >info@chempha.com</a
+            >ni@indel.com.ua</a
+          >
+          <a href="www.indel.com.ua" class="footer-col__item"
+            >www.indel.com.ua</a
           >
         </div>
       </div>
@@ -40,7 +49,7 @@
       </div>
 
       <div class="col-lg-4">
-        <h4 class="footer-col__title">Продукти застосування</h4>
+        <h4 class="footer-col__title">Використання</h4>
         <div class="footer-col__list">
           <NuxtLink
             v-for="category of applicationsForView"
