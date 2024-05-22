@@ -142,7 +142,7 @@ export default {
       texts: texts.data.attributes,
       team: team.data.map((member) => ({
         ...member.attributes,
-        avatar: `${media}${member.attributes.avatar?.data.attributes.url}`,
+        avatar: `${media}${member?.attributes?.avatar?.data?.attributes.url}`,
       })),
     };
   },

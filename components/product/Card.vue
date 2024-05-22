@@ -7,7 +7,7 @@
     </NuxtLink>
     <h4 class="product-card__category">{{ category }}</h4>
     <NuxtLink :to="`/products/${id}`" class="product-card__link">
-      <h4 class="product-card__name">{{ name }}</h4>
+      <h4 class="product-card__name" v-html="name"></h4>
     </NuxtLink>
     <div class="product-card__actions">
       <AppButton variant="black" @click="openSubmitModal"
