@@ -2,7 +2,7 @@
   <div class="partners-page">
     <Head>
       <Title>Partners</Title>
-      <Meta name="og:title" content="Chempha Partners" />
+      <Meta name="og:title" content="Indel Cosmetics Partners" />
     </Head>
     <div class="container">
       <AppPageBanner img="/images/banners/partner.jpg" title="Партнери" />

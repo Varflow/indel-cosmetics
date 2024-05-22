@@ -1,8 +1,8 @@
 <template>
   <div class="contact-page">
     <Head>
-      <Title>Chempha Contact Us</Title>
-      <Meta name="og:title" content="Chempha Contact Us" />
+      <Title>Indel Cosmetics Contact Us</Title>
+      <Meta name="og:title" content="Indel Cosmetics Contact Us" />
     </Head>
     <div class="container">
       <AppPageBanner
@@ -54,22 +54,24 @@
         <div class="col-12 col-lg-6 contact-map">
           <div class="contact-map-label">
             <p class="contact-address">
-              <b>Chempha OÜ</b> <br />
-              Narva mnt 7-634 <br />
-              10117 Tallinn, Estonia<br />
-              <a href="tel:+372 712 2708">Tel. +372 712 2708</a><br />
+              <b>ТОВ "Індел"</b> <br />
+              Вул. М. Грушевського,39Д <br />
+              Одеса, 650031, Україна<br />
+              <a href="tel:+380 48 701-33-89">Tel./fax: +380 48 701-33-89</a>
+              <a href="tel:+380 48 705-46-61">Tel./fax: +380 48 705-46-61</a>
+              <a href="tel:+380 48 737-33-25">Tel./fax: +380 48 737-33-25</a>
             </p>
             <p class="contact-email">
               <span class="contact-email__label">EMAIL</span><br />
-              <a href="mailto:info@chempha.com" class="contact-email__value"
-                >info@chempha.com</a
+              <a href="mailto:ni@indel.com.ua" class="contact-email__value"
+                >ni@indel.com.ua</a
               >
             </p>
           </div>
 
           <div class="contact-map-wrapper">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2028.731435995756!2d24.758015876640776!3d59.43755360235374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4692935e18486e35%3A0x268a68b569620c84!2zTmFydmEgbW50IDctNjM0LCAxMDExNyBUYWxsaW5uLCDQrdGB0YLQvtC90LjRjw!5e0!3m2!1sru!2sua!4v1690224073201!5m2!1sru!2sua"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6148.763269866758!2d30.68519790380269!3d46.48250575607405!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c63137c54e2d99%3A0x67894dd0c04e6317!2z0KHQtdGA0LLRltGB0L3QuNC5INGG0LXQvdGC0YAg0LzQvtGA0YHRjNC60L7Qs9C-INGC0LAg0YDRltGH0LrQvtCy0L7Qs9C-INGC0YDQsNC90YHQv9C-0YDRgtGD!5e0!3m2!1sru!2sua!4v1716382619597!5m2!1sru!2sua"
               width="100%"
               height="100%"
               style="border: 0"

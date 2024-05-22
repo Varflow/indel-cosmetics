@@ -1,8 +1,8 @@
 <template>
   <div class="news-page">
     <Head>
-      <Title>Chempha News</Title>
-      <Meta name="og:title" content="Chempha News" />
+      <Title>Indel Cosmetics News</Title>
+      <Meta name="og:title" content="Indel Cosmetics News" />
     </Head>
     <div class="container">
       <AppPageBanner title="Новини" />

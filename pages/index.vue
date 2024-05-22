@@ -1,7 +1,7 @@
 <template>
   <div class="home-page">
     <Head>
-      <Title>Chempha</Title>
+      <Title>Indel Cosmetics</Title>
       <Link rel="canonical" href="https://chempha.com" />
       <Meta
         name="google-site-verification"

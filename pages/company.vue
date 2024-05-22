@@ -1,11 +1,11 @@
 <template>
   <div class="company-page">
     <Head>
-      <Title>Chempha About Company</Title>
-      <Meta name="og:title" content="Chempha About Company" />
+      <Title>Indel Cosmetics About Company</Title>
+      <Meta name="og:title" content="Indel Cosmetics About Company" />
       <Meta
         name="og:description"
-        content="Chempha OÜ is an international company engaged in distribution of
+        content="Indel Cosmetics OÜ is an international company engaged in distribution of
             special and unique chemicals for production of personal care and
             cosmetics."
       />

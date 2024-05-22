@@ -56,12 +56,12 @@ export default {
           method: "POST",
           body: {
             to: config.public.mailTo,
-            subject: "Application from site",
+            subject: "Заявка с сайта",
             html: `
-            <h1>${formData.name} sent a request from the Chempha website for a product ${this.title}</h1>
-            <p><b>Subject</b>: ${formData.subject}</p>
+            <h1>${formData.name} надіслав запит із сайту Indel Cosmetics на товар ${this.title}</h1>
+            <p><b>Тема</b>: ${formData.subject}</p>
             <p><b>Email</b>: ${formData.email}</p>
-            <p><b>Message</b>: ${formData.message}</p>
+            <p><b>Повідомлення</b>: ${formData.message}</p>
           `,
           },
         });

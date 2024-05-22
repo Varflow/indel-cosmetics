@@ -16,7 +16,7 @@
           <a href="tel:+380 48 737-33-25" class="footer-col__item"
             >Tel./fax: +380 48 737-33-25</a
           >
-          <a href="mailto:info@chempha.com" class="footer-col__item"
+          <a href="mailto:ni@indel.com.ua" class="footer-col__item"
             >ni@indel.com.ua</a
           >
           <a href="www.indel.com.ua" class="footer-col__item"
