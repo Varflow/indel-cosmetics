@@ -20,7 +20,7 @@
           />
         </div>
         <div class="col-12 col-lg-6 product-page__info">
-          <h2 class="product-page__name">{{ productForView.name }}</h2>
+          <h2 class="product-page__name" v-html="productForView.name"></h2>
           <div
             class="product-page__excert"
             v-html="productForView.excert"
