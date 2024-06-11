@@ -1,5 +1,5 @@
 <template>
-  <AppModal id="submit-modal" title="Замовити зразок">
+  <AppModal id="submit-modal" title="Замовити взірець">
     <form class="submit-modal__form" @submit.prevent="submit">
       <label class="form-field">
         Ім'я
@@ -24,7 +24,7 @@
       </label>
       <div class="submit-modal__actions">
         <AppButton variant="black" appearence="filled"
-          >Замовити зразок</AppButton
+          >Замовити взірець</AppButton
         >
       </div>
     </form>

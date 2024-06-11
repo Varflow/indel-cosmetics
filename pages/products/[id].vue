@@ -30,7 +30,7 @@
               variant="black"
               appearence="filled"
               @click="openSubmitModal"
-              >Замовити зразок</AppButton
+              >Замовити взірець</AppButton
             >
           </div>
         </div>

@@ -32,6 +32,7 @@
 <script>
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
+import orderby from "lodash.orderby";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -67,8 +68,6 @@ export default {
         },
       });
 
-      console.log(banners);
-
       const slides = banners.data.map((banner) => {
         return {
           ...banner.attributes,
@@ -76,8 +75,10 @@ export default {
         };
       });
 
+      const orderedSlides = orderby(slides, ["order"], ["asc"]);
+
       this.loading = false;
-      this.slides = slides;
+      this.slides = orderedSlides;
     } catch (error) {
       console.log(error);
     }

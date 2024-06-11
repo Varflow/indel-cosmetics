@@ -19,7 +19,10 @@
           <a href="mailto:ni@indel.com.ua" class="footer-col__item"
             >ni@indel.com.ua</a
           >
-          <a href="www.indel.com.ua" class="footer-col__item"
+          <a
+            href="http://indel.com.ua/"
+            target="_blank"
+            class="footer-col__item"
             >www.indel.com.ua</a
           >
         </div>

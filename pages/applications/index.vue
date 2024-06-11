@@ -8,7 +8,7 @@
     </Head>
     <div class="container">
       <AppPageBanner
-        title="Applications"
+        title="Використання"
         img="/images/banners/ingredients.jpeg"
       />
 

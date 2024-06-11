@@ -29,10 +29,11 @@
   &.with-image {
     .page-banner__title {
       color: #fff;
+      text-align: center;
     }
 
     &:before {
-      content: '';
+      content: "";
 
       position: absolute;
       top: 0;
@@ -51,6 +52,7 @@
     font-size: 80px;
     font-weight: 600;
     color: $accent;
+    text-align: center;
 
     @media screen and (max-width: 768px) {
       font-size: 24px;
