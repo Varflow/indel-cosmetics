@@ -1,7 +1,7 @@
 <template>
   <div class="search-page">
     <div class="container">
-      <AppPageBanner title="Search result" />
+      <AppPageBanner title="Результати пошуку" />
       <div class="search-container--full">
         <input
           type="text"
@@ -53,7 +53,7 @@
       </div>
 
       <div class="search-empty" v-else>
-        <h1 class="search-empty__title">No search results</h1>
+        <h1 class="search-empty__title">Немає результатів пошуку</h1>
       </div>
     </div>
   </div>
