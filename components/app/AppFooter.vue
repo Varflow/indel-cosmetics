@@ -7,11 +7,11 @@
           <div class="footer-col__item">ТОВ "Індел"</div>
           <div class="footer-col__item">Вул. М. Грушевського , 39Д</div>
           <div class="footer-col__item">Одеса, 65031, Україна</div>
-          <a href="tel:+380 48 701-33-89" class="footer-col__item"
-            >Tel./fax: +380 48 701-33-89</a
+          <a href="tel:+380 50 673-27-09" class="footer-col__item"
+            >Tel./fax: +380 50 673-27-09</a
           >
-          <a href="tel:+380 48 705-46-61" class="footer-col__item"
-            >Tel./fax: +380 48 705-46-61</a
+          <a href="tel:+380 95 285-88-27" class="footer-col__item"
+            >Tel./fax: +380 95 285-88-27</a
           >
           <a href="tel:+380 48 737-33-25" class="footer-col__item"
             >Tel./fax: +380 48 737-33-25</a
