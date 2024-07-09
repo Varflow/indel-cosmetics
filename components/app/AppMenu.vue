@@ -124,6 +124,7 @@
 </template>
 
 <script>
+import orderBy from "lodash.orderby";
 const toView = (collection) => {
   if (!collection) {
     return [];
@@ -135,12 +136,18 @@ const toView = (collection) => {
       name: collection.attributes.Name,
       children: !collection.attributes.pod_kategoriyas?.data.length
         ? null
-        : collection.attributes.pod_kategoriyas?.data.map((subcategory) => {
-            return {
-              id: subcategory.id,
-              name: subcategory.attributes.name,
-            };
-          }),
+        : orderBy(
+            collection.attributes.pod_kategoriyas?.data.map((subcategory) => {
+              return {
+                id: subcategory.id,
+                name: subcategory.attributes.name,
+                order: subcategory.attributes.order,
+              };
+            }),
+            ["order"],
+            ["asc"]
+          ),
+      order: collection.attributes.order,
     };
   });
 };
@@ -162,9 +169,19 @@ export default {
       const ingredientsForView = toView(ingredients);
       const applicationsForView = toView(applications);
 
-      return {
+      const orderedIngredients = orderBy(
         ingredientsForView,
+        ["order"],
+        ["asc"]
+      );
+      const orderedApplications = orderBy(
         applicationsForView,
+        ["order"],
+        ["asc"]
+      );
+      return {
+        ingredientsForView: orderedIngredients,
+        applicationsForView: orderedApplications,
         menu: menu.data.attributes,
       };
     } catch (error) {

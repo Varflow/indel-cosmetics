@@ -33,25 +33,31 @@
   </div>
 </template>
 <script>
+import orderBy from "lodash.orderby";
+
 const toView = (collection) => {
   if (!collection) {
     return [];
   }
 
   return collection.map((collection) => {
-    console.log(collection);
     return {
       id: collection.id,
       name: collection.attributes.Name,
-      image: collection.attributes.image.data?.attributes.url,
       children: !collection.attributes.pod_kategoriyas?.data.length
         ? null
-        : collection.attributes.pod_kategoriyas?.data.map((subcategory) => {
-            return {
-              id: subcategory.id,
-              name: subcategory.attributes.name,
-            };
-          }),
+        : orderBy(
+            collection.attributes.pod_kategoriyas?.data.map((subcategory) => {
+              return {
+                id: subcategory.id,
+                name: subcategory.attributes.name,
+                order: subcategory.attributes.order,
+              };
+            }),
+            ["order"],
+            ["asc"]
+          ),
+      order: collection.attributes.order,
     };
   });
 };
@@ -69,9 +75,14 @@ export default {
       );
 
       const ingredientsForView = toView(ingredients);
+      const orderedIngredients = orderBy(
+        ingredientsForView,
+        ["order"],
+        ["asc"]
+      );
 
       return {
-        ingredientsForView,
+        ingredientsForView: orderedIngredients,
         media,
       };
     } catch (error) {

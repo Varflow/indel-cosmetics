@@ -13,7 +13,7 @@
       />
 
       <div class="row categories-list gy-5">
-        <div class="col-12 col-lg-4" v-for="category of ingredientsForView">
+        <div class="col-12 col-lg-4" v-for="category of applicationsForView">
           <NuxtLink
             class="category-card__link"
             :to="
@@ -33,25 +33,31 @@
   </div>
 </template>
 <script>
+import orderBy from "lodash.orderby";
+
 const toView = (collection) => {
   if (!collection) {
     return [];
   }
 
   return collection.map((collection) => {
-    console.log(collection);
     return {
       id: collection.id,
       name: collection.attributes.Name,
-      image: collection.attributes.image.data?.attributes.url,
       children: !collection.attributes.pod_kategoriyas?.data.length
         ? null
-        : collection.attributes.pod_kategoriyas?.data.map((subcategory) => {
-            return {
-              id: subcategory.id,
-              name: subcategory.attributes.name,
-            };
-          }),
+        : orderBy(
+            collection.attributes.pod_kategoriyas?.data.map((subcategory) => {
+              return {
+                id: subcategory.id,
+                name: subcategory.attributes.name,
+                order: subcategory.attributes.order,
+              };
+            }),
+            ["order"],
+            ["asc"]
+          ),
+      order: collection.attributes.order,
     };
   });
 };
@@ -64,14 +70,19 @@ export default {
 
       const categories = await find("categories", { populate: "*" });
 
-      const ingredients = categories.data.filter(
+      const applications = categories.data.filter(
         (category) => category.attributes.section === "application"
       );
 
-      const ingredientsForView = toView(ingredients);
+      const applicationsForView = toView(applications);
+      const orderedApplications = orderBy(
+        applicationsForView,
+        ["order"],
+        ["asc"]
+      );
 
       return {
-        ingredientsForView,
+        applicationsForView: orderedApplications,
         media,
       };
     } catch (error) {

@@ -5,8 +5,8 @@
         <h4 class="footer-col__title">Контакти</h4>
         <div class="footer-col__list">
           <div class="footer-col__item">ТОВ "Індел"</div>
-          <div class="footer-col__item">Вул. М. Грушевського,39Д</div>
-          <div class="footer-col__item">Одеса, 650031, Україна</div>
+          <div class="footer-col__item">Вул. М. Грушевського , 39Д</div>
+          <div class="footer-col__item">Одеса, 65031, Україна</div>
           <a href="tel:+380 48 701-33-89" class="footer-col__item"
             >Tel./fax: +380 48 701-33-89</a
           >
@@ -16,8 +16,8 @@
           <a href="tel:+380 48 737-33-25" class="footer-col__item"
             >Tel./fax: +380 48 737-33-25</a
           >
-          <a href="mailto:ni@indel.com.ua" class="footer-col__item"
-            >ni@indel.com.ua</a
+          <a href="mailto:info@indel.com.ua" class="footer-col__item"
+            >info@indel.com.ua</a
           >
           <a
             href="http://indel.com.ua/"

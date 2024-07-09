@@ -55,16 +55,16 @@
           <div class="contact-map-label">
             <p class="contact-address">
               <b>ТОВ "Індел"</b> <br />
-              Вул. М. Грушевського,39Д <br />
-              Одеса, 650031, Україна<br />
+              Вул. М. Грушевського , 39Д <br />
+              Одеса, 65031, Україна<br />
               <a href="tel:+380 48 701-33-89">Tel./fax: +380 48 701-33-89</a>
               <a href="tel:+380 48 705-46-61">Tel./fax: +380 48 705-46-61</a>
               <a href="tel:+380 48 737-33-25">Tel./fax: +380 48 737-33-25</a>
             </p>
             <p class="contact-email">
               <span class="contact-email__label">EMAIL</span><br />
-              <a href="mailto:ni@indel.com.ua" class="contact-email__value"
-                >ni@indel.com.ua</a
+              <a href="mailto:info@indel.com.ua" class="contact-email__value"
+                >info@indel.com.ua</a
               >
             </p>
           </div>
