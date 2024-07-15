@@ -44,6 +44,7 @@ const toView = (collection) => {
     return {
       id: collection.id,
       name: collection.attributes.Name,
+      image: collection.attributes.image?.data?.attributes?.url,
       children: !collection.attributes.pod_kategoriyas?.data.length
         ? null
         : orderBy(
