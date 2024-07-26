@@ -48,22 +48,17 @@ export default {
   methods: {
     async submit() {
       try {
-        // const client = useStrapiClient();
-        const config = useRuntimeConfig();
-
         const formData = this.$data;
 
-        await sendEmail({
-          to: config.public.mailTo,
-          subject: "Заявка с сайта",
-          html: `
+        await useFetch("/api/hello", {
+          body: {
+            subject: "Заявка с сайта",
+            html: `
             <h1>${formData.name} надіслав запит із сайту Indel Cosmetics на товар ${this.title}</h1>
             <p><b>Тема</b>: ${formData.subject}</p>
             <p><b>Email</b>: ${formData.email}</p>
             <p><b>Повідомлення</b>: ${formData.message}</p>
           `,
-          options: {
-            apiKey: config.public.sendGridApiKey,
           },
         });
 
