@@ -31,63 +31,45 @@
   </AppModal>
 </template>
 
-<script>
+<script setup>
 import Micromodal from "micromodal";
-import { sendEmail } from "../../email";
 
-export default {
-  props: ["title"],
-  data() {
-    return {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    };
-  },
-  methods: {
-    async submit() {
-      try {
-        const formData = this.$data;
+const props = defineProps(["title"]);
 
-        await useFetch("/api/hello", {
-          body: {
-            subject: "Заявка с сайта",
-            html: `
-            <h1>${formData.name} надіслав запит із сайту Indel Cosmetics на товар ${this.title}</h1>
-            <p><b>Тема</b>: ${formData.subject}</p>
+const formData = reactive({
+  name: "",
+  email: "",
+  message: "",
+});
+
+const submit = async () => {
+  try {
+    const config = useRuntimeConfig();
+
+    await useFetch("/api/mail", {
+      method: "POST",
+      body: {
+        to: config.public.mailTo,
+        subject: "Заявка с сайта",
+        html: `
+            <h1>${formData.name} надіслав запит із сайту Indel на товар ${this.title}</h1>
+            <p><b>Тема</b>: "Заявка на товар"</p>
             <p><b>Email</b>: ${formData.email}</p>
             <p><b>Повідомлення</b>: ${formData.message}</p>
           `,
-          },
-        });
+      },
+    });
 
-        // client("/email", {
-        //   method: "POST",
-        //   body: {
-        //     to: config.public.mailTo,
-        //     subject: "Заявка с сайта",
-        //     html: `
-        //     <h1>${formData.name} надіслав запит із сайту Indel Cosmetics на товар ${this.title}</h1>
-        //     <p><b>Тема</b>: ${formData.subject}</p>
-        //     <p><b>Email</b>: ${formData.email}</p>
-        //     <p><b>Повідомлення</b>: ${formData.message}</p>
-        //   `,
-        //   },
-        // });
-
-        Micromodal.close("submit-modal");
-        Micromodal.show("success-modal");
-        setTimeout(() => {
-          Micromodal.close("success-modal");
-        }, 5000);
-      } catch (error) {
-        Micromodal.show("error-modal");
-        setTimeout(() => {
-          Micromodal.close("error-modal");
-        }, 5000);
-      }
-    },
-  },
+    Micromodal.close("submit-modal");
+    Micromodal.show("success-modal");
+    setTimeout(() => {
+      Micromodal.close("success-modal");
+    }, 5000);
+  } catch (error) {
+    Micromodal.show("error-modal");
+    setTimeout(() => {
+      Micromodal.close("error-modal");
+    }, 5000);
+  }
 };
 </script>
