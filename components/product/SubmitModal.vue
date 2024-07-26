@@ -53,6 +53,7 @@ const formData = reactive({
   name: "",
   email: "",
   message: "",
+  subject: "",
 });
 
 const submit = async () => {
@@ -65,8 +66,8 @@ const submit = async () => {
         to: config.public.mailTo,
         subject: "Заявка с сайта",
         html: `
-            <h1>${formData.name} надіслав запит із сайту Indel на товар ${this.title}</h1>
-            <p><b>Тема</b>: "Заявка на товар"</p>
+            <h1>${formData.name} надіслав запит із сайту Indel на товар ${props.title}</h1>
+            <p><b>Тема</b>: ${formData.subject}</p>
             <p><b>Email</b>: ${formData.email}</p>
             <p><b>Повідомлення</b>: ${formData.message}</p>
           `,
@@ -79,6 +80,7 @@ const submit = async () => {
       Micromodal.close("success-modal");
     }, 5000);
   } catch (error) {
+    Micromodal.close("submit-modal");
     Micromodal.show("error-modal");
     setTimeout(() => {
       Micromodal.close("error-modal");
