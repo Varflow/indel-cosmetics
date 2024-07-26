@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       mailTo: process.env.MAIL_TO,
+      sendGridApiKey: process.env.SENDGRID_API_KEY,
     },
   },
   site: {

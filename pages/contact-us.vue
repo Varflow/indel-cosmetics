@@ -88,6 +88,8 @@
 
 <script>
 import Micromodal from "micromodal";
+import { sendEmail } from "../email";
+
 export default {
   data() {
     return {
@@ -100,23 +102,36 @@ export default {
   methods: {
     async submit() {
       try {
-        const client = useStrapiClient();
+        // const client = useStrapiClient();
         const config = useRuntimeConfig();
 
         const formData = this.$data;
 
-        await client("/email", {
-          method: "POST",
-          body: {
-            to: config.public.mailTo,
-            subject: "Application from site (Contact Us)",
-            html: `
+        await sendEmail({
+          to: config.public.mailTo,
+          subject: "Application from site (Contact Us)",
+          html: `
             <p><b>Name</b>: ${formData.name}</p>
             <p><b>Email</b>: ${formData.email}</p>
             <p><b>Message</b>: ${formData.message}</p>
           `,
+          options: {
+            apiKey: config.public.sendGridApiKey,
           },
         });
+
+        // await client("/email", {
+        //   method: "POST",
+        //   body: {
+        //     to: config.public.mailTo,
+        //     subject: "Application from site (Contact Us)",
+        //     html: `
+        //     <p><b>Name</b>: ${formData.name}</p>
+        //     <p><b>Email</b>: ${formData.email}</p>
+        //     <p><b>Message</b>: ${formData.message}</p>
+        //   `,
+        //   },
+        // });
 
         Micromodal.show("success-modal");
         setTimeout(() => {

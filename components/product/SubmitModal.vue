@@ -33,6 +33,7 @@
 
 <script>
 import Micromodal from "micromodal";
+import { sendEmail } from "../../email";
 
 export default {
   props: ["title"],
@@ -47,24 +48,38 @@ export default {
   methods: {
     async submit() {
       try {
-        const client = useStrapiClient();
+        // const client = useStrapiClient();
         const config = useRuntimeConfig();
 
         const formData = this.$data;
 
-        client("/email", {
-          method: "POST",
-          body: {
-            to: config.public.mailTo,
-            subject: "Заявка с сайта",
-            html: `
+        await sendEmail({
+          to: config.public.mailTo,
+          subject: "Заявка с сайта",
+          html: `
             <h1>${formData.name} надіслав запит із сайту Indel Cosmetics на товар ${this.title}</h1>
             <p><b>Тема</b>: ${formData.subject}</p>
             <p><b>Email</b>: ${formData.email}</p>
             <p><b>Повідомлення</b>: ${formData.message}</p>
           `,
+          options: {
+            apiKey: config.public.sendGridApiKey,
           },
         });
+
+        // client("/email", {
+        //   method: "POST",
+        //   body: {
+        //     to: config.public.mailTo,
+        //     subject: "Заявка с сайта",
+        //     html: `
+        //     <h1>${formData.name} надіслав запит із сайту Indel Cosmetics на товар ${this.title}</h1>
+        //     <p><b>Тема</b>: ${formData.subject}</p>
+        //     <p><b>Email</b>: ${formData.email}</p>
+        //     <p><b>Повідомлення</b>: ${formData.message}</p>
+        //   `,
+        //   },
+        // });
 
         Micromodal.close("submit-modal");
         Micromodal.show("success-modal");
