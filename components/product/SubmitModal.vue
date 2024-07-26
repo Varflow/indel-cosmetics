@@ -3,7 +3,12 @@
     <form class="submit-modal__form" @submit.prevent="submit">
       <label class="form-field">
         Ім'я
-        <input type="text" class="form-field__input" required v-model="name" />
+        <input
+          type="text"
+          class="form-field__input"
+          required
+          v-model="formData.name"
+        />
       </label>
       <label class="form-field">
         Email
@@ -11,16 +16,24 @@
           type="email"
           class="form-field__input"
           required
-          v-model="email"
+          v-model="formData.email"
         />
       </label>
       <label class="form-field">
         Тема
-        <input type="text" class="form-field__input" v-model="subject" />
+        <input
+          type="text"
+          class="form-field__input"
+          v-model="formData.subject"
+        />
       </label>
       <label class="form-field">
         Повідомлення
-        <textarea class="form-field__textarea" required v-model="message" />
+        <textarea
+          class="form-field__textarea"
+          required
+          v-model="formData.message"
+        />
       </label>
       <div class="submit-modal__actions">
         <AppButton variant="black" appearence="filled"

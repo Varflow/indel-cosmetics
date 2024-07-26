@@ -24,7 +24,7 @@
                   type="text"
                   id="name"
                   required
-                  v-model="name"
+                  v-model="formData.name"
                 />
               </label>
               <label for="email" class="form-field col-12">
@@ -34,7 +34,7 @@
                   type="email"
                   id="email"
                   required
-                  v-model="email"
+                  v-model="formData.email"
                 />
               </label>
             </div>
@@ -42,7 +42,7 @@
               Ваше повідомлення
               <textarea
                 id="message"
-                v-model="message"
+                v-model="formData.message"
                 class="form-field__textarea"
               />
             </label>
