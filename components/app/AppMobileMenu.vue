@@ -227,7 +227,11 @@ export default {
   async setup() {
     try {
       const { find } = useStrapi();
-      const categories = await find("categories", { populate: "*" });
+      const categories = await find("categories", {
+        populate: {
+          pod_kategoriyas: "*",
+        },
+      });
       const menu = await find("menyu");
 
       const ingredients = categories.data.filter(

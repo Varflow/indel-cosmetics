@@ -69,7 +69,11 @@ export default {
       const { find } = useStrapi();
       const media = useStrapiMedia();
 
-      const categories = await find("categories", { populate: "*" });
+      const categories = await find("categories", {
+        populate: {
+          pod_kategoriyas: "*",
+        },
+      });
 
       const applications = categories.data.filter(
         (category) => category.attributes.section === "application"
