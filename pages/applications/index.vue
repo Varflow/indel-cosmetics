@@ -71,7 +71,11 @@ export default {
 
       const categories = await find("categories", {
         populate: {
-          pod_kategoriyas: "*",
+          pod_kategoriyas: {
+            populate: {
+              image: "*",
+            },
+          },
         },
       });
 

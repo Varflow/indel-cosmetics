@@ -54,7 +54,11 @@ export default {
       const category = await findOne("categories", id, {
         populate: {
           image: "*",
-          pod_kategoriyas: "*",
+          pod_kategoriyas: {
+            populate: {
+              image: "*",
+            },
+          },
         },
       });
 
