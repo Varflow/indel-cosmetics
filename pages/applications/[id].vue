@@ -7,7 +7,7 @@
       <Meta name="og:image" :content="`${media}${categoryBanner?.url}`" />
     </Head>
     <div class="container">
-      <AppPageBanner :title="title" :img="categoryBanner" />
+      <AppPageBanner :title="title" :img="`${media}${categoryBanner?.url}`" />
 
       <div class="row categories-list gy-5">
         <div class="col-12 col-lg-4" v-for="subcategory of subcategories">
