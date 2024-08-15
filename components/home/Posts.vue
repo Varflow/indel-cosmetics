@@ -7,7 +7,7 @@
         </h2>
       </div>
 
-      <PostList :limit="4" />
+      <PostList :limit="2" />
 
       <div class="section-actions">
         <NuxtLink to="/posts" class="link-without-decoration">
