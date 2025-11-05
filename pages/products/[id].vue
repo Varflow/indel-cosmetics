@@ -11,6 +11,7 @@
         :content="`${media}${productForView?.image?.url}`"
       />
     </Head>
+
     <div class="product-page" v-if="productForView">
       <div class="row product-page__header">
         <div class="col-12 col-lg-6 product-page__image">
@@ -48,6 +49,7 @@
         ></div>
       </div>
     </div>
+    <div v-else class="product-page__name">Немає в наявності</div>
 
     <ProductSubmitModal />
   </div>
@@ -74,7 +76,9 @@ export default {
 
       return {
         media,
-        productForView,
+        productForView: Boolean(product.data.attributes.publishedAt)
+          ? productForView
+          : null,
       };
     } catch (error) {
       console.log(error);
