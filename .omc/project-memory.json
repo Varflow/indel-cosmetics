@@ -249,6 +249,12 @@
       "accessCount": 2,
       "lastAccessed": 1781967368736,
       "type": "file"
+    },
+    {
+      "path": "nuxt.config.js",
+      "accessCount": 2,
+      "lastAccessed": 1781968618874,
+      "type": "file"
     }
   ],
   "userDirectives": []
