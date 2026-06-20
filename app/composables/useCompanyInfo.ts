@@ -4,14 +4,8 @@ export const useCompanyInfo = async () => {
 
   const { data: response } = await useAsyncData("company-info", async () => {
     const [info, team] = await Promise.all([
-      find<any>("o-kompanii", {
-        populate: {
-          first_image: true,
-          second_image: true,
-          third_image: true,
-          main_image: true,
-        },
-      }),
+      // o-kompanii has only text/richtext fields (images on the page are static)
+      find<any>("o-kompanii"),
       find<any>("komandas", {
         populate: { avatar: true },
       }),
@@ -22,14 +16,7 @@ export const useCompanyInfo = async () => {
   const companyInfo = computed(() => {
     const data = response.value?.info;
     if (!data) return null;
-    const node = Array.isArray(data) ? data[0] : data;
-    return {
-      ...node,
-      main_image: getImage(node?.main_image?.url),
-      first_image: getImage(node?.first_image?.url),
-      second_image: getImage(node?.second_image?.url),
-      third_image: getImage(node?.third_image?.url),
-    };
+    return Array.isArray(data) ? data[0] : data;
   });
 
   const team = computed(() =>
