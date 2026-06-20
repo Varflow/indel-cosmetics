@@ -167,6 +167,12 @@
       "type": "file"
     },
     {
+      "path": "nuxt.config.js",
+      "accessCount": 4,
+      "lastAccessed": 1781970880102,
+      "type": "file"
+    },
+    {
       "path": "app/components/home/Portfolio.vue",
       "accessCount": 3,
       "lastAccessed": 1781967320731,
@@ -248,12 +254,6 @@
       "path": "app/components/banners/About.vue",
       "accessCount": 2,
       "lastAccessed": 1781967368736,
-      "type": "file"
-    },
-    {
-      "path": "nuxt.config.js",
-      "accessCount": 2,
-      "lastAccessed": 1781968618874,
       "type": "file"
     }
   ],
