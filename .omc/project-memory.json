@@ -1,0 +1,165 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1781951101944,
+  "projectRoot": "/Users/dev_wandry/projects/personal/indel-cosm/indel_cosmetics",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "nuxt",
+        "version": "3.6.5",
+        "category": "fullstack"
+      }
+    ],
+    "packageManager": "yarn",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "cd /Users/dev_wandry/projects/personal/indel-cosm/indel_cosmetics\necho \"starting build...\"; pnpm build 2>&1 | tail -25",
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": "yarn dev",
+    "scripts": {
+      "build": "nuxt build",
+      "dev": "nuxt dev",
+      "generate": "nuxt generate",
+      "preview": "nuxt preview",
+      "postinstall": "nuxt prepare"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "assets",
+      "components",
+      "pages",
+      "public"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "assets": {
+      "path": "assets",
+      "purpose": "Static assets",
+      "fileCount": 1,
+      "lastAccessed": 1781951101901,
+      "keyFiles": []
+    },
+    "components": {
+      "path": "components",
+      "purpose": "UI components",
+      "fileCount": 0,
+      "lastAccessed": 1781951101902,
+      "keyFiles": []
+    },
+    "email": {
+      "path": "email",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781951101921,
+      "keyFiles": [
+        "index.ts"
+      ]
+    },
+    "layouts": {
+      "path": "layouts",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781951101921,
+      "keyFiles": [
+        "default.vue"
+      ]
+    },
+    "pages": {
+      "path": "pages",
+      "purpose": "Page components",
+      "fileCount": 5,
+      "lastAccessed": 1781951101922,
+      "keyFiles": [
+        "company.vue",
+        "contact-us.vue",
+        "index.vue",
+        "news.vue",
+        "partners.vue"
+      ]
+    },
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 3,
+      "lastAccessed": 1781951101923,
+      "keyFiles": [
+        "favicon.ico",
+        "googleda11475467dbee43.html"
+      ]
+    },
+    "server": {
+      "path": "server",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781951101923,
+      "keyFiles": []
+    },
+    "components/app": {
+      "path": "components/app",
+      "purpose": "Application code",
+      "fileCount": 11,
+      "lastAccessed": 1781951101924,
+      "keyFiles": [
+        "AppFooter.vue",
+        "AppHeader.vue",
+        "AppLoader.vue"
+      ]
+    },
+    "server/api": {
+      "path": "server/api",
+      "purpose": "API routes",
+      "fileCount": 2,
+      "lastAccessed": 1781951101926,
+      "keyFiles": [
+        "_sitemap-urls.ts",
+        "mail.post.ts"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "app/layouts/default.vue",
+      "accessCount": 2,
+      "lastAccessed": 1781958782806,
+      "type": "file"
+    },
+    {
+      "path": "app/assets/scss/_general.scss",
+      "accessCount": 2,
+      "lastAccessed": 1781958798353,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

@@ -1,19 +1,25 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
+  compatibilityDate: "2025-01-01",
+  future: {
+    compatibilityVersion: 4,
+  },
+
   ssr: false,
   runtimeConfig: {
     public: {
       mailTo: process.env.MAIL_TO,
       sendGridApiKey: process.env.SENDGRID_API_KEY,
+      strapiUrl: process.env.STRAPI_URL || "http://localhost:1337",
     },
   },
   site: {
     url: process.env.NUXT_PUBLIC_SITE_URL,
   },
 
-  devtools: { enabled: true },
-  modules: ["@nuxtjs/strapi", "@nuxt/image", "nuxt-simple-sitemap"],
+  modules: ["@nuxtjs/strapi", "@nuxt/image", "@nuxtjs/sitemap"],
+  plugins: ["~/plugins/click-outside.ts"],
   css: ["~/assets/scss/main.scss"],
 
   app: {
@@ -89,7 +95,7 @@ export default defineNuxtConfig({
   strapi: {
     url: process.env.STRAPI_URL || "http://localhost:1337",
     prefix: "/api",
-    version: "v4",
+    version: "v5",
     cookie: {},
     cookieName: "strapi_jwt",
   },

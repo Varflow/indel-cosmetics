@@ -1,0 +1,17 @@
+{
+  "agents": [
+    {
+      "agent_id": "asite-worker-f2aef23730d45114",
+      "agent_type": "site-worker",
+      "started_at": "2026-06-20T11:11:06.950Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-06-20T11:11:24.532Z",
+      "duration_ms": 17582
+    }
+  ],
+  "total_spawned": 1,
+  "total_completed": 1,
+  "total_failed": 0,
+  "last_updated": "2026-06-20T12:28:20.412Z"
+}
