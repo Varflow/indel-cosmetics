@@ -23,4 +23,16 @@
 <script setup lang="ts">
 const route = useRoute();
 const { post } = await usePostBySlug(route.params.id as string);
+
+// Per-locale SEO meta — post arrives in the active locale via the
+// locale-aware composable; derive a short description from its body.
+useSeoMeta({
+  title: () => post.value?.title ?? "",
+  description: () =>
+    post.value?.text?.replace(/<[^>]*>/g, "").slice(0, 160) ?? "",
+  ogTitle: () => post.value?.title ?? "",
+  ogDescription: () =>
+    post.value?.text?.replace(/<[^>]*>/g, "").slice(0, 160) ?? "",
+  ogImage: () => post.value?.image ?? "",
+});
 </script>

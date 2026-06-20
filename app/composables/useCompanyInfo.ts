@@ -1,17 +1,23 @@
 export const useCompanyInfo = async () => {
+  const { locale } = useLocale();
   const { find } = useStrapi();
   const { getImage } = useStrapiImage();
 
-  const { data: response } = await useAsyncData("company-info", async () => {
-    const [info, team] = await Promise.all([
-      // o-kompanii has only text/richtext fields (images on the page are static)
-      find<any>("o-kompanii"),
-      find<any>("komandas", {
-        populate: { avatar: true },
-      }),
-    ]);
-    return { info: info.data, team: team.data };
-  });
+  const { data: response } = await useAsyncData(
+    `company-info-${locale.value}`,
+    async () => {
+      const [info, team] = await Promise.all([
+        // o-kompanii has only text/richtext fields (images on the page are static)
+        find<any>("o-kompanii", { locale: locale.value }),
+        find<any>("komandas", {
+          populate: { avatar: true },
+          locale: locale.value,
+        }),
+      ]);
+      return { info: info.data, team: team.data };
+    },
+    { watch: [locale] }
+  );
 
   const companyInfo = computed(() => {
     const data = response.value?.info;

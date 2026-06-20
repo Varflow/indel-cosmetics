@@ -3,20 +3,23 @@ import type { Ref } from "vue";
 export const useSubcategoryBySlug = async (
   documentId: string | Ref<string>
 ) => {
+  const { locale } = useLocale();
   const { findOne } = useStrapi();
   const { getImage } = useStrapiImage();
 
   const idRef = isRef(documentId) ? documentId : ref(documentId);
 
   const { data: response } = await useAsyncData(
-    `subcategory-${idRef.value}`,
+    `subcategory-${idRef.value}-${locale.value}`,
     () =>
       findOne<any>("pod-kategoriyas", idRef.value, {
         populate: {
           image: true,
           tovaries: { populate: { image: true, pod_kategoriyas: true } },
         },
-      })
+        locale: locale.value,
+      }),
+    { watch: [locale] }
   );
 
   const subcategory = computed(() => {

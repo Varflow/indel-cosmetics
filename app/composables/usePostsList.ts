@@ -3,11 +3,12 @@ interface UsePostsListOptions {
 }
 
 export const usePostsList = async (options: UsePostsListOptions = {}) => {
+  const { locale } = useLocale();
   const { find } = useStrapi();
   const { getImage } = useStrapiImage();
 
   const { data: response } = await useAsyncData(
-    `posts-list-${options.limit ?? "all"}`,
+    `posts-list-${locale.value}-${options.limit ?? "all"}`,
     () =>
       find<any>("novostis", {
         populate: { image: true },
@@ -15,7 +16,9 @@ export const usePostsList = async (options: UsePostsListOptions = {}) => {
           ? { pagination: { start: 0, limit: options.limit } }
           : {}),
         sort: "createdAt:desc",
-      })
+        locale: locale.value,
+      }),
+    { watch: [locale] }
   );
 
   const posts = computed(() =>

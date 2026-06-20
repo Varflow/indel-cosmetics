@@ -3,16 +3,19 @@ interface UseVideosListOptions {
 }
 
 export const useVideosList = async (options: UseVideosListOptions = {}) => {
+  const { locale } = useLocale();
   const { find } = useStrapi();
 
   const { data: response } = await useAsyncData(
-    `videos-list-${options.limit ?? "all"}`,
+    `videos-list-${locale.value}-${options.limit ?? "all"}`,
     () =>
       find<any>("video-glavnayas", {
         ...(options.limit
           ? { pagination: { start: 0, limit: options.limit } }
           : {}),
-      })
+        locale: locale.value,
+      }),
+    { watch: [locale] }
   );
 
   const videos = computed(() =>

@@ -1,4 +1,5 @@
 export const useProductSearch = (initialQuery: string = "") => {
+  const { locale } = useLocale();
   const { find } = useStrapi();
   const { getImage } = useStrapiImage();
 
@@ -19,6 +20,7 @@ export const useProductSearch = (initialQuery: string = "") => {
       const [productsRes, postsRes] = await Promise.all([
         find<any>("tovaries", {
           populate: { image: true, pod_kategoriyas: true },
+          locale: locale.value,
           filters: {
             $or: [
               { name: { $containsi: query.value } },
@@ -29,6 +31,7 @@ export const useProductSearch = (initialQuery: string = "") => {
         }),
         find<any>("novostis", {
           populate: { image: true },
+          locale: locale.value,
           filters: {
             $or: [
               { title: { $containsi: query.value } },

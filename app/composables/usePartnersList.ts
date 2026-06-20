@@ -1,12 +1,17 @@
 export const usePartnersList = async () => {
+  const { locale } = useLocale();
   const { find } = useStrapi();
   const { getImage } = useStrapiImage();
 
-  const { data: response } = await useAsyncData("partners-list", () =>
-    find<any>("partners", {
-      populate: { logo: true },
-      pagination: { page: 1, pageSize: 100 },
-    })
+  const { data: response } = await useAsyncData(
+    `partners-list-${locale.value}`,
+    () =>
+      find<any>("partners", {
+        populate: { logo: true },
+        pagination: { page: 1, pageSize: 100 },
+        locale: locale.value,
+      }),
+    { watch: [locale] }
   );
 
   const partners = computed(() =>

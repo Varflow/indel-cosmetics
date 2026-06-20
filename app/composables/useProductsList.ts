@@ -6,13 +6,14 @@ interface ProductsListOptions {
 }
 
 export const useProductsList = async (options: ProductsListOptions = {}) => {
+  const { locale } = useLocale();
   const { find } = useStrapi();
   const { getImage } = useStrapiImage();
 
   const page = isRef(options.page) ? options.page : ref(options.page ?? 1);
 
   const { data: response } = await useAsyncData(
-    `products-list-p${page.value}`,
+    `products-list-${locale.value}-p${page.value}`,
     () =>
       find<any>("tovaries", {
         populate: { image: true, pod_kategoriyas: true },
@@ -20,8 +21,9 @@ export const useProductsList = async (options: ProductsListOptions = {}) => {
           page: page.value,
           pageSize: options.limit ?? 25,
         },
+        locale: locale.value,
       }),
-    { watch: [page] }
+    { watch: [page, locale] }
   );
 
   const products = computed(() =>

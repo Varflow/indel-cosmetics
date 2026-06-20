@@ -5,7 +5,7 @@
       <Meta name="og:title" content="Indel Cosmetics News" />
     </Head>
     <div class="container">
-      <AppPageBanner title="Новини" />
+      <AppPageBanner :title="$t('Новини')" />
       <div class="posts-list-container">
         <PostList />
       </div>

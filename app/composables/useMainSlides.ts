@@ -1,11 +1,16 @@
 export const useMainSlides = async () => {
+  const { locale } = useLocale();
   const { find } = useStrapi();
   const { getImage } = useStrapiImage();
 
-  const { data: response } = await useAsyncData("main-slides", () =>
-    find<any>("slajder-glavnayas", {
-      populate: { image: true },
-    })
+  const { data: response } = await useAsyncData(
+    `main-slides-${locale.value}`,
+    () =>
+      find<any>("slajder-glavnayas", {
+        populate: { image: true },
+        locale: locale.value,
+      }),
+    { watch: [locale] }
   );
 
   const slides = computed(() =>

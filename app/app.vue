@@ -5,6 +5,12 @@
   </NuxtLayout>
 </template>
 
+<script setup>
+// Emit hreflang alternates + canonical (+ og:locale) for every page across both locales.
+const localeHead = useLocaleHead({ seo: true });
+useHead(localeHead);
+</script>
+
 <style>
 .page-enter-active,
 .page-leave-active {

@@ -2,13 +2,13 @@
 <template>
   <div class="category-page">
     <Head>
-      <Title>Використання</Title>
+      <Title>{{ $t("Використання") }}</Title>
       <Meta name="og:title" :content="` Indredients`" />
       <Meta name="og:image" content="/images/banners/ingredients.jpeg" />
     </Head>
     <div class="container">
       <AppPageBanner
-        title="Використання"
+        :title="$t('Використання')"
         img="/images/banners/ingredients.jpeg"
       />
 

@@ -12,6 +12,7 @@ export const useCategoryBySlug = async (
   const withProducts = options.withProducts !== false;
   const withSubcategories = options.withSubcategories !== false;
 
+  const { locale } = useLocale();
   const { findOne } = useStrapi();
   const { getImage } = useStrapiImage();
 
@@ -26,11 +27,13 @@ export const useCategoryBySlug = async (
   }
 
   const { data: response } = await useAsyncData(
-    `category-${idRef.value}`,
+    `category-${idRef.value}-${locale.value}`,
     () =>
       findOne<any>("categories", idRef.value, {
         populate,
-      })
+        locale: locale.value,
+      }),
+    { watch: [locale] }
   );
 
   const category = computed(() => {

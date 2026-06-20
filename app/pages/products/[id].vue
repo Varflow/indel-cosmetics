@@ -19,7 +19,7 @@
           <div class="product-page__excert" v-html="product.excert"></div>
           <div class="product-page__actions">
             <AppButton variant="black" appearence="filled" @click="openSubmitModal"
-              >Замовити взірець</AppButton
+              >{{ $t("Замовити взірець") }}</AppButton
             >
           </div>
         </div>
@@ -27,7 +27,7 @@
 
       <div class="product-page__content">
         <div class="product-page__tabs">
-          <div class="product-page__tab">Опис</div>
+          <div class="product-page__tab">{{ $t("Опис") }}</div>
         </div>
         <div class="product-page__text" v-html="product.description" />
         <div
@@ -37,7 +37,7 @@
         ></div>
       </div>
     </div>
-    <div v-else class="product-page__name">Немає в наявності</div>
+    <div v-else class="product-page__name">{{ $t("Немає в наявності") }}</div>
 
     <ProductSubmitModal />
   </div>
@@ -48,6 +48,17 @@ import Micromodal from "micromodal";
 
 const route = useRoute();
 const { product } = await useProductBySlug(route.params.id as string);
+
+// Per-locale SEO meta — product is fetched via the locale-aware composable,
+// so title / seo_descripiton / seo_keywords already arrive in the active locale.
+useSeoMeta({
+  title: () => product.value?.title ?? "",
+  description: () => product.value?.seo_descripiton ?? "",
+  keywords: () => product.value?.seo_keywords ?? "",
+  ogTitle: () => product.value?.title ?? "",
+  ogDescription: () => product.value?.seo_descripiton ?? "",
+  ogImage: () => product.value?.image ?? "",
+});
 
 const openSubmitModal = () => {
   Micromodal.show("submit-modal");

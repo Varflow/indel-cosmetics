@@ -20,8 +20,9 @@
             >
                 <AppMenu />
             </div>
-            <div class="col-lg-2 d-lg-flex d-none">
+            <div class="col-lg-2 d-lg-flex d-none align-items-center">
                 <SearchProducts />
+                <AppLocale />
             </div>
         </div>
     </header>

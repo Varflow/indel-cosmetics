@@ -5,20 +5,23 @@ interface UseCategoriesListOptions {
 export const useCategoriesList = async (
   options: UseCategoriesListOptions = {}
 ) => {
+  const { locale } = useLocale();
   const { find } = useStrapi();
   const { getImage } = useStrapiImage();
 
   const sectionKey = options.section ?? "all";
 
   const { data: response } = await useAsyncData(
-    `categories-${sectionKey}`,
+    `categories-${sectionKey}-${locale.value}`,
     () =>
       find<any>("categories", {
         populate: { image: true, pod_kategoriyas: true },
         ...(options.section
           ? { filters: { section: { $eq: options.section } } }
           : {}),
-      })
+        locale: locale.value,
+      }),
+    { watch: [locale] }
   );
 
   const categories = computed(() =>

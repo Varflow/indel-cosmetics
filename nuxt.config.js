@@ -18,9 +18,24 @@ export default defineNuxtConfig({
     url: process.env.NUXT_PUBLIC_SITE_URL,
   },
 
-  modules: ["@nuxtjs/strapi", "@nuxt/image", "@nuxtjs/sitemap"],
+  modules: ["@nuxtjs/strapi", "@nuxt/image", "@nuxtjs/sitemap", "@nuxtjs/i18n"],
   plugins: ["~/plugins/click-outside.ts"],
   css: ["~/assets/scss/main.scss"],
+
+  i18n: {
+    defaultLocale: "uk-UA",
+    locales: [
+      { code: "uk-UA", name: "Українська", language: "uk-UA", file: "uk.json" },
+      { code: "en", name: "English", language: "en-US", file: "en.json" },
+    ],
+  },
+
+  // @nuxtjs/sitemap auto-detects @nuxtjs/i18n and emits both locale URL sets
+  // plus <xhtml:link rel="alternate" hreflang> entries when this integration
+  // is left enabled.
+  sitemap: {
+    autoI18n: true,
+  },
 
   app: {
     pageTransition: { name: "page", mode: "out-in" },
