@@ -38,3 +38,6 @@
 {"t":0,"agent":"a543752","agent_type":"executor","event":"agent_stop","success":true,"duration_ms":227202}
 {"t":0,"agent":"a293206","agent_type":"unknown","event":"agent_stop","success":true}
 {"t":0,"agent":"a293206","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"a245063","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"a245063","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"af4150d","agent_type":"unknown","event":"agent_stop","success":true}

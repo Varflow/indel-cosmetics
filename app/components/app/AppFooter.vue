@@ -84,7 +84,7 @@
     </div>
 
     <div class="footer-copyright">
-      {{ $t("Indel Cosmetics © Copyright 2025 - Усі права захищено") }}
+      {{ $t("Indel Cosmetics © Copyright 2026 - Усі права захищено") }}
     </div>
   </footer>
 </template>
