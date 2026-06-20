@@ -41,7 +41,7 @@
         </div>
 
         <div class="col-lg-4 col-xl-3 gy-5" v-for="post of posts" :key="post.id">
-          <NuxtLink :to="`/posts/${post.id}`" class="link-without-decoration">
+          <NuxtLink :to="$localePath(`/posts/${post.id}`)" class="link-without-decoration">
             <PostCard
               :title="post.title"
               :createdAt="post.createdAt"

@@ -24,7 +24,7 @@
     <div class="header-mobile__menu">
       <NuxtLink
         @click="$emit('close')"
-        to="/company"
+        :to="$localePath('/company')"
         class="header-menu__link"
         v-if="menu"
       >
@@ -78,7 +78,7 @@
 
             <NuxtLink
               v-else
-              :to="`/category/${category.id}`"
+              :to="$localePath(`/category/${category.id}`)"
               @click="$emit('close')"
             >
               {{ category.name }}
@@ -92,7 +92,7 @@
               <NuxtLink
                 v-for="subcategory of category.children"
                 :key="subcategory.id"
-                :to="`/subcategory/${subcategory.id}`"
+                :to="$localePath(`/subcategory/${subcategory.id}`)"
                 class="header-menu__link"
                 @click="$emit('close')"
               >
@@ -150,7 +150,7 @@
 
             <NuxtLink
               v-else
-              :to="`/category/${category.id}`"
+              :to="$localePath(`/category/${category.id}`)"
               @click="$emit('close')"
             >
               {{ category.name }}
@@ -164,7 +164,7 @@
               <NuxtLink
                 v-for="subcategory of category.children"
                 :key="subcategory.id"
-                :to="`/subcategory/${subcategory.id}`"
+                :to="$localePath(`/subcategory/${subcategory.id}`)"
                 class="header-menu__link"
                 @click="$emit('close')"
               >
@@ -176,7 +176,7 @@
       </div>
       <NuxtLink
         @click="$emit('close')"
-        to="/partners"
+        :to="$localePath('/partners')"
         class="header-menu__link"
         v-if="menu"
       >
@@ -184,7 +184,7 @@
       </NuxtLink>
       <NuxtLink
         @click="$emit('close')"
-        to="/news"
+        :to="$localePath('/news')"
         class="header-menu__link"
         v-if="menu"
       >
@@ -192,7 +192,7 @@
       </NuxtLink>
       <NuxtLink
         @click="$emit('close')"
-        to="/contact-us"
+        :to="$localePath('/contact-us')"
         class="header-menu__link"
         v-if="menu"
       >

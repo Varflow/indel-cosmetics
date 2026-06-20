@@ -32,7 +32,7 @@
     "runtime": null
   },
   "build": {
-    "buildCommand": "cd /Users/dev_wandry/projects/personal/indel-cosm/indel_cosmetics\necho \"starting build...\"; pnpm build 2>&1 | tail -25",
+    "buildCommand": "timeout 240 pnpm build 2>&1 | tail -15",
     "testCommand": null,
     "lintCommand": null,
     "devCommand": "yarn dev",
@@ -149,6 +149,30 @@
   },
   "hotPaths": [
     {
+      "path": "app/components/app/AppMenu.vue",
+      "accessCount": 11,
+      "lastAccessed": 1781967293850,
+      "type": "file"
+    },
+    {
+      "path": "app/components/app/AppMobileMenu.vue",
+      "accessCount": 7,
+      "lastAccessed": 1781967310763,
+      "type": "file"
+    },
+    {
+      "path": "app/components/banners/Main.vue",
+      "accessCount": 4,
+      "lastAccessed": 1781967630595,
+      "type": "file"
+    },
+    {
+      "path": "app/components/home/Portfolio.vue",
+      "accessCount": 3,
+      "lastAccessed": 1781967320731,
+      "type": "file"
+    },
+    {
       "path": "app/layouts/default.vue",
       "accessCount": 2,
       "lastAccessed": 1781958782806,
@@ -158,6 +182,72 @@
       "path": "app/assets/scss/_general.scss",
       "accessCount": 2,
       "lastAccessed": 1781958798353,
+      "type": "file"
+    },
+    {
+      "path": "app/components/home/Videos.vue",
+      "accessCount": 2,
+      "lastAccessed": 1781967317865,
+      "type": "file"
+    },
+    {
+      "path": "app/components/home/Posts.vue",
+      "accessCount": 2,
+      "lastAccessed": 1781967322667,
+      "type": "file"
+    },
+    {
+      "path": "app/components/home/Products.vue",
+      "accessCount": 2,
+      "lastAccessed": 1781967324001,
+      "type": "file"
+    },
+    {
+      "path": "app/components/post/List.vue",
+      "accessCount": 2,
+      "lastAccessed": 1781967325467,
+      "type": "file"
+    },
+    {
+      "path": "app/components/product/Card.vue",
+      "accessCount": 2,
+      "lastAccessed": 1781967327323,
+      "type": "file"
+    },
+    {
+      "path": "app/pages/search/index.vue",
+      "accessCount": 2,
+      "lastAccessed": 1781967329320,
+      "type": "file"
+    },
+    {
+      "path": "app/pages/applications/[id].vue",
+      "accessCount": 2,
+      "lastAccessed": 1781967330643,
+      "type": "file"
+    },
+    {
+      "path": "app/pages/ingredients/[id].vue",
+      "accessCount": 2,
+      "lastAccessed": 1781967331782,
+      "type": "file"
+    },
+    {
+      "path": "app/pages/ingredients/index.vue",
+      "accessCount": 2,
+      "lastAccessed": 1781967339786,
+      "type": "file"
+    },
+    {
+      "path": "app/pages/applications/index.vue",
+      "accessCount": 2,
+      "lastAccessed": 1781967341438,
+      "type": "file"
+    },
+    {
+      "path": "app/components/banners/About.vue",
+      "accessCount": 2,
+      "lastAccessed": 1781967368736,
       "type": "file"
     }
   ],

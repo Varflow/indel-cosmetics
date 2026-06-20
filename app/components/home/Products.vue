@@ -68,7 +68,7 @@
     </swiper>
 
     <div class="section-products__actions">
-      <NuxtLink to="/products" class="link-without-decoration">
+      <NuxtLink :to="$localePath('/products')" class="link-without-decoration">
         <AppButton variant="black" v-if="texts">
           {{ texts.third_section_button_text }}
         </AppButton>

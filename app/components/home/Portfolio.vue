@@ -11,7 +11,7 @@
 
     <div class="row g-2 portfolio-list">
       <div class="col-lg-6 portfolio-card">
-        <NuxtLink to="/ingredients">
+        <NuxtLink :to="$localePath('/ingredients')">
           <div class="portfolio-card__image-wrapper">
             <img
               src="/images/banners/portfolio/portfolio-1.jpg"
@@ -40,7 +40,7 @@
         </NuxtLink>
       </div>
       <div class="col-lg-6 portfolio-card">
-        <NuxtLink to="/applications">
+        <NuxtLink :to="$localePath('/applications')">
           <div class="portfolio-card__image-wrapper">
             <img
               src="/images/banners/portfolio/portfolio-2.jpg"

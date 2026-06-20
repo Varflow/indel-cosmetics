@@ -1,9 +1,9 @@
 <template>
-  <NuxtLink to="/company" class="header-menu__link" v-if="menu">
+  <NuxtLink :to="$localePath('/company')" class="header-menu__link" v-if="menu">
     {{ menu.first_menu_item }}
   </NuxtLink>
   <div class="header-menu__link" v-if="ingredients.length">
-    <NuxtLink to="/ingredients" v-if="menu">
+    <NuxtLink :to="$localePath('/ingredients')" v-if="menu">
       <div class="header-menu__link-label">
         {{ menu.second_menu_item }}
         <svg
@@ -22,7 +22,7 @@
     <div class="header-menu-dropdown header-menu-categories">
       <div class="header-menu__link" v-for="category of ingredients" :key="category.id">
         <NuxtLink
-          :to="`/ingredients/${category.id}`"
+          :to="$localePath(`/ingredients/${category.id}`)"
           class="header-menu__link-label"
           v-if="category.children"
         >
@@ -39,7 +39,7 @@
             />
           </svg>
         </NuxtLink>
-        <NuxtLink v-else :to="`/category/${category.id}`">
+        <NuxtLink v-else :to="$localePath(`/category/${category.id}`)">
           {{ category.name }}
         </NuxtLink>
         <div
@@ -49,7 +49,7 @@
           <NuxtLink
             v-for="subcategory of category.children"
             :key="subcategory.id"
-            :to="`/subcategory/${subcategory.id}`"
+            :to="$localePath(`/subcategory/${subcategory.id}`)"
             class="header-menu__link"
           >
             {{ subcategory.name }}
@@ -59,7 +59,7 @@
     </div>
   </div>
   <div class="header-menu__link" v-if="applications.length">
-    <NuxtLink to="/applications" v-if="menu">
+    <NuxtLink :to="$localePath('/applications')" v-if="menu">
       <div class="header-menu__link-label">
         {{ menu.third_menu_item }}
         <svg
@@ -78,7 +78,7 @@
     <div class="header-menu-dropdown header-menu-categories">
       <div class="header-menu__link" v-for="category of applications" :key="category.id">
         <NuxtLink
-          :to="`/applications/${category.id}`"
+          :to="$localePath(`/applications/${category.id}`)"
           class="header-menu__link-label"
           v-if="category.children"
         >
@@ -95,7 +95,7 @@
             />
           </svg>
         </NuxtLink>
-        <NuxtLink v-else :to="`/category/${category.id}`">
+        <NuxtLink v-else :to="$localePath(`/category/${category.id}`)">
           {{ category.name }}
         </NuxtLink>
         <div
@@ -105,7 +105,7 @@
           <NuxtLink
             v-for="subcategory of category.children"
             :key="subcategory.id"
-            :to="`/subcategory/${subcategory.id}`"
+            :to="$localePath(`/subcategory/${subcategory.id}`)"
             class="header-menu__link"
           >
             {{ subcategory.name }}
@@ -114,13 +114,13 @@
       </div>
     </div>
   </div>
-  <NuxtLink to="/partners" class="header-menu__link" v-if="menu">
+  <NuxtLink :to="$localePath('/partners')" class="header-menu__link" v-if="menu">
     {{ menu.fourth_menu_item }}
   </NuxtLink>
-  <NuxtLink to="/news" class="header-menu__link">
+  <NuxtLink :to="$localePath('/news')" class="header-menu__link">
     {{ menu.fifth_menu_item }}
   </NuxtLink>
-  <NuxtLink to="/contact-us" class="header-menu__link">
+  <NuxtLink :to="$localePath('/contact-us')" class="header-menu__link">
     {{ menu.sixth_menu_item }}
   </NuxtLink>
 </template>
