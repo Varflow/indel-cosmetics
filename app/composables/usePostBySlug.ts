@@ -4,6 +4,7 @@ export const usePostBySlug = async (documentId: string | Ref<string>) => {
   const { locale } = useLocale();
   const { findOne } = useStrapi();
   const { getImage } = useStrapiImage();
+  const { formatPost } = usePostDate();
 
   const idRef = isRef(documentId) ? documentId : ref(documentId);
 
@@ -11,7 +12,11 @@ export const usePostBySlug = async (documentId: string | Ref<string>) => {
     `post-${idRef.value}-${locale.value}`,
     () =>
       findOne<any>("novostis", idRef.value, {
-        populate: { image: true },
+        populate: {
+          image: true,
+          // Needed to resolve one shared date across locales — see usePostDate.
+          localizations: { fields: ["locale", "createdAt"] },
+        },
         locale: locale.value,
       }),
     { watch: [locale] }
@@ -25,7 +30,7 @@ export const usePostBySlug = async (documentId: string | Ref<string>) => {
       title: p.title,
       text: p.text,
       image: getImage(p.image?.url),
-      createdAt: new Date(p.createdAt).toLocaleDateString(),
+      createdAt: formatPost(p),
     };
   });
 

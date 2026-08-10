@@ -2,6 +2,7 @@ export const useProductSearch = (initialQuery: string = "") => {
   const { locale } = useLocale();
   const { find } = useStrapi();
   const { getImage } = useStrapiImage();
+  const { formatPost } = usePostDate();
 
   const query = ref(initialQuery);
   const products = ref<any[]>([]);
@@ -30,7 +31,11 @@ export const useProductSearch = (initialQuery: string = "") => {
           },
         }),
         find<any>("novostis", {
-          populate: { image: true },
+          populate: {
+            image: true,
+            // Needed to resolve one shared date across locales — see usePostDate.
+            localizations: { fields: ["locale", "createdAt"] },
+          },
           locale: locale.value,
           filters: {
             $or: [
@@ -53,7 +58,7 @@ export const useProductSearch = (initialQuery: string = "") => {
         title: post.title,
         text: post.text,
         image: getImage(post.image?.url),
-        createdAt: new Date(post.createdAt).toLocaleDateString(),
+        createdAt: formatPost(post),
       }));
     } finally {
       loading.value = false;

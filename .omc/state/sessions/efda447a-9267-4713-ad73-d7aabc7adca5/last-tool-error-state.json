@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"curl -s -m 20 -o /private/tmp/claude-501/-Users-dev-wandry-projects-personal-indel-cosm/efda447a-9267-4713-ad73-d7aabc7adca5/scratchpad/strapi.json -w \\\"status=%{http_code} size=%{size_dow...",
+  "error": "Exit code 1\nhead: /private/tmp/claude-501/-Users-dev-wandry-projects-personal-indel-cosm/efda447a-9267-4713-ad73-d7aabc7adca5/scratchpad/strapi.json: No such file or directory",
+  "timestamp": "2026-08-10T18:22:43.115Z",
+  "retry_count": 1
+}
