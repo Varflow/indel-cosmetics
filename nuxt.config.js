@@ -18,7 +18,13 @@ export default defineNuxtConfig({
     url: process.env.NUXT_PUBLIC_SITE_URL,
   },
 
-  modules: ["@nuxtjs/strapi", "@nuxt/image", "@nuxtjs/sitemap", "@nuxtjs/i18n"],
+  modules: [
+    "@nuxtjs/strapi",
+    "@nuxt/image",
+    "@nuxtjs/sitemap",
+    "@nuxtjs/robots",
+    "@nuxtjs/i18n",
+  ],
   plugins: ["~/plugins/click-outside.ts"],
   css: ["~/assets/scss/main.scss"],
 
@@ -35,6 +41,8 @@ export default defineNuxtConfig({
   // is left enabled.
   sitemap: {
     autoI18n: true,
+    sources: ["/api/_sitemap-urls"],
+    exclude: ["/search"],
   },
 
   app: {
