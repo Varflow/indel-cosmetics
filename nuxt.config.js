@@ -15,7 +15,10 @@ export default defineNuxtConfig({
     },
   },
   site: {
+    // Только публичный адрес, без порта: сюда смотрит реверс-прокси, а не
+    // порт, на котором слушает node. Порт процесса задаётся PORT/NITRO_PORT.
     url: process.env.NUXT_PUBLIC_SITE_URL,
+    name: "Indel Cosmetics",
   },
 
   modules: [
