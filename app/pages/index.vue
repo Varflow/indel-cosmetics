@@ -2,7 +2,7 @@
   <div class="home-page">
     <Head>
       <Title>Indel Cosmetics</Title>
-      <Link rel="canonical" href="https://chempha.com" />
+      <Link rel="canonical" href="https://indelcosm.com.ua" />
       <Meta
         name="google-site-verification"
         content="t5h28M5twka3Ii02_z1gXTKtr-UN0KOGhHbq619dCbQ"
