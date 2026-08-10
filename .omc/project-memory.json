@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1781951101944,
+  "lastScanned": 1786362024906,
   "projectRoot": "/Users/dev_wandry/projects/personal/indel-cosm/indel_cosmetics",
   "techStack": {
     "languages": [
       {
         "name": "JavaScript/TypeScript",
-        "version": null,
+        "version": ">=18.0.0 <=22.x.x",
         "confidence": "high",
         "markers": [
           "package.json"
@@ -24,24 +24,25 @@
     "frameworks": [
       {
         "name": "nuxt",
-        "version": "3.6.5",
+        "version": "4.4.2",
         "category": "fullstack"
       }
     ],
-    "packageManager": "yarn",
-    "runtime": null
+    "packageManager": "pnpm",
+    "runtime": "Node.js 18.0.022.x.x"
   },
   "build": {
-    "buildCommand": "timeout 240 pnpm build 2>&1 | tail -15",
+    "buildCommand": "cd /Users/dev_wandry/projects/personal/chempha && rm -rf .output && NUXT_PUBLIC_SITE_URL=https://example.com STRAPI_URL=http://127.0.0.1:9 pnpm build > /tmp/build-chempha-dead.log 2>&1; echo \"BUILD EXIT=$?\"; grep -iE \"prerender|sitemap-urls недоступен|Strapi недоступен\" /tmp/build-chempha-dead.log | head -10; echo \"--- <url> в статической карте ---\"; grep -c '<url>' .output/public/__sitemap__/en.xml 2>/dev/null",
     "testCommand": null,
     "lintCommand": null,
-    "devCommand": "yarn dev",
+    "devCommand": "pnpm dev",
     "scripts": {
       "build": "nuxt build",
       "dev": "nuxt dev",
       "generate": "nuxt generate",
       "preview": "nuxt preview",
-      "postinstall": "nuxt prepare"
+      "postinstall": "nuxt prepare",
+      "typecheck": "nuxt typecheck"
     }
   },
   "conventions": {
@@ -54,8 +55,7 @@
     "isMonorepo": false,
     "workspaces": [],
     "mainDirectories": [
-      "assets",
-      "components",
+      "app",
       "pages",
       "public"
     ],
@@ -63,56 +63,44 @@
   },
   "customNotes": [],
   "directoryMap": {
-    "assets": {
-      "path": "assets",
-      "purpose": "Static assets",
-      "fileCount": 1,
-      "lastAccessed": 1781951101901,
-      "keyFiles": []
-    },
-    "components": {
-      "path": "components",
-      "purpose": "UI components",
-      "fileCount": 0,
-      "lastAccessed": 1781951101902,
-      "keyFiles": []
+    "app": {
+      "path": "app",
+      "purpose": "Application code",
+      "fileCount": 2,
+      "lastAccessed": 1786362024825,
+      "keyFiles": [
+        "app.vue",
+        "declarations.d.ts"
+      ]
     },
     "email": {
       "path": "email",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1781951101921,
+      "lastAccessed": 1786362024827,
       "keyFiles": [
         "index.ts"
       ]
     },
-    "layouts": {
-      "path": "layouts",
+    "i18n": {
+      "path": "i18n",
       "purpose": null,
-      "fileCount": 1,
-      "lastAccessed": 1781951101921,
-      "keyFiles": [
-        "default.vue"
-      ]
+      "fileCount": 0,
+      "lastAccessed": 1786362024880,
+      "keyFiles": []
     },
     "pages": {
       "path": "pages",
       "purpose": "Page components",
-      "fileCount": 5,
-      "lastAccessed": 1781951101922,
-      "keyFiles": [
-        "company.vue",
-        "contact-us.vue",
-        "index.vue",
-        "news.vue",
-        "partners.vue"
-      ]
+      "fileCount": 0,
+      "lastAccessed": 1786362024883,
+      "keyFiles": []
     },
     "public": {
       "path": "public",
       "purpose": "Public files",
       "fileCount": 3,
-      "lastAccessed": 1781951101923,
+      "lastAccessed": 1786362024884,
       "keyFiles": [
         "favicon.ico",
         "googleda11475467dbee43.html"
@@ -122,25 +110,39 @@
       "path": "server",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1781951101923,
+      "lastAccessed": 1786362024885,
       "keyFiles": []
     },
-    "components/app": {
-      "path": "components/app",
-      "purpose": "Application code",
-      "fileCount": 11,
-      "lastAccessed": 1781951101924,
+    "app/assets": {
+      "path": "app/assets",
+      "purpose": "Static assets",
+      "fileCount": 1,
+      "lastAccessed": 1786362024887,
+      "keyFiles": []
+    },
+    "app/components": {
+      "path": "app/components",
+      "purpose": "UI components",
+      "fileCount": 0,
+      "lastAccessed": 1786362024887,
+      "keyFiles": []
+    },
+    "app/pages": {
+      "path": "app/pages",
+      "purpose": "Page components",
+      "fileCount": 5,
+      "lastAccessed": 1786362024888,
       "keyFiles": [
-        "AppFooter.vue",
-        "AppHeader.vue",
-        "AppLoader.vue"
+        "company.vue",
+        "contact-us.vue",
+        "index.vue"
       ]
     },
     "server/api": {
       "path": "server/api",
       "purpose": "API routes",
       "fileCount": 2,
-      "lastAccessed": 1781951101926,
+      "lastAccessed": 1786362024892,
       "keyFiles": [
         "_sitemap-urls.ts",
         "mail.post.ts"
@@ -150,8 +152,8 @@
   "hotPaths": [
     {
       "path": "app/components/app/AppMenu.vue",
-      "accessCount": 11,
-      "lastAccessed": 1781967293850,
+      "accessCount": 12,
+      "lastAccessed": 1786362408005,
       "type": "file"
     },
     {
@@ -161,21 +163,27 @@
       "type": "file"
     },
     {
+      "path": "nuxt.config.js",
+      "accessCount": 7,
+      "lastAccessed": 1786362511361,
+      "type": "file"
+    },
+    {
       "path": "app/components/banners/Main.vue",
       "accessCount": 4,
       "lastAccessed": 1781967630595,
       "type": "file"
     },
     {
-      "path": "nuxt.config.js",
-      "accessCount": 4,
-      "lastAccessed": 1781970880102,
-      "type": "file"
-    },
-    {
       "path": "app/components/home/Portfolio.vue",
       "accessCount": 3,
       "lastAccessed": 1781967320731,
+      "type": "file"
+    },
+    {
+      "path": "app/pages/ingredients/index.vue",
+      "accessCount": 3,
+      "lastAccessed": 1786362406809,
       "type": "file"
     },
     {
@@ -239,12 +247,6 @@
       "type": "file"
     },
     {
-      "path": "app/pages/ingredients/index.vue",
-      "accessCount": 2,
-      "lastAccessed": 1781967339786,
-      "type": "file"
-    },
-    {
       "path": "app/pages/applications/index.vue",
       "accessCount": 2,
       "lastAccessed": 1781967341438,
@@ -254,6 +256,36 @@
       "path": "app/components/banners/About.vue",
       "accessCount": 2,
       "lastAccessed": 1781967368736,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 2,
+      "lastAccessed": 1786362502893,
+      "type": "file"
+    },
+    {
+      "path": "server/api/_sitemap-urls.ts",
+      "accessCount": 2,
+      "lastAccessed": 1786362527742,
+      "type": "file"
+    },
+    {
+      "path": ".env.example",
+      "accessCount": 2,
+      "lastAccessed": 1786363221274,
+      "type": "file"
+    },
+    {
+      "path": "app/composables/useCategoriesList.ts",
+      "accessCount": 1,
+      "lastAccessed": 1786362407522,
+      "type": "file"
+    },
+    {
+      "path": ".env",
+      "accessCount": 1,
+      "lastAccessed": 1786362448932,
       "type": "file"
     }
   ],
