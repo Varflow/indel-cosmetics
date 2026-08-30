@@ -1,20 +1,27 @@
 <template>
     <header class="header container">
         <div class="row align-items-center">
-            <div class="col-3 d-flex d-lg-none align-items-center">
-                <div class="header-mobile__btn" @click="open">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                </div>
-            </div>
             <div class="col-6 col-lg-2">
                 <NuxtLink @click="close" to="https://indel.com.ua">
                     <img src="/images/logo.svg" alt="" class="header-logo" />
                 </NuxtLink>
             </div>
 
-            <div class="col-3 d-flex d-lg-none"></div>
+            <div
+                class="col-6 d-flex d-lg-none justify-content-end align-items-center header-mobile__actions"
+            >
+                <AppLocale />
+                <button
+                    type="button"
+                    class="header-mobile__btn"
+                    aria-label="Menu"
+                    @click="open"
+                >
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </button>
+            </div>
             <div
                 class="d-none d-lg-flex col-lg-8 justify-content-end header-menu"
             >
